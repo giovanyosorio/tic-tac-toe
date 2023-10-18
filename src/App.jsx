@@ -17,6 +17,8 @@ function App() {
   const [board,setBoard]= useState(Array(9).fill(null))
   console.log(board);
 
+  //const updateBoard = (index) => {
+
   return (
     <main className='board'>
       <h1>Tic Tac Toe</h1>
