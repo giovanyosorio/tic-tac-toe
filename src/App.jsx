@@ -14,8 +14,8 @@ const Square=({children,updateBoard,index}) => {
   )
 }
 function App() {
-  const [board,setBoard]= useState(Array(9).fill(null))
-  console.log(board);
+  const [board,setBoard]= useState(["x","o","x","o","x","o","x","o","x"])
+  
 
   //const updateBoard = (index) => {
 
@@ -27,7 +27,7 @@ function App() {
           board.map((_, index) => {
             return (
               <Square key={index} index={index} >
-                
+                {board[index]}
               </Square>
             )
           })
