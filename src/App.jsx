@@ -25,11 +25,15 @@ function App() {
   const [turn,setTurn]= useState(TURNS.X)
 
     const updateBoard = (index) => {
-
+      // si la casilla ya esta ocupada no hacer nada
+      if(board[index]){
+        return
+      }
+      // actualizar el tablero
       const newBoard = [...board]
       newBoard[index] = turn
       setBoard(newBoard)
-
+      // cambiar el turno
       const newTurn= turn === TURNS.X ? TURNS.O : TURNS.X
       setTurn(newTurn)
   }
