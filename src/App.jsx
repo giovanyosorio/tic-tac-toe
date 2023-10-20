@@ -4,7 +4,7 @@ import './App.css'
 import confetti from 'canvas-confetti'
 import { Square } from "./components/Square";
 import {  TURNS} from "./constants";
-import { checkWinnerFrom } from './logic/board';
+import { checkWinnerFrom,CheckEndGame } from './logic/board';
 import { WinnerModal } from './components/WinnerModal';
 function App() {
   const [board,setBoard]= useState(Array(9).fill(null))
@@ -19,11 +19,7 @@ function App() {
     setWinner(null)
   }
 
-  const CheckEndGame=(newBoard)=>{
-    //revisamos si hay un empate
-    //si no hay mas espacios vacios en el tablero
-    return newBoard.every((square)=>square!==null)
-  }
+
 
     const updateBoard = (index) => {
       // si la casilla ya esta ocupada no hacer nada
@@ -37,6 +33,11 @@ function App() {
       // cambiar el turno
       const newTurn= turn === TURNS.X ? TURNS.O : TURNS.X
       setTurn(newTurn)
+      // guardar partida
+      window.localStorage.setItem("board",JSON.stringify(newBoard))
+      window.localStorage.setItem("turn",turn)
+
+
       // verificar si hay ganador
       const newWinner = checkWinnerFrom(newBoard)
       if(newWinner){
