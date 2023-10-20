@@ -55,6 +55,12 @@ function App() {
     return null
   }
 
+  const resetGame=()=>{
+    setBoard(Array(9).fill(null))
+    setTurn(TURNS.X)
+    setWinner(null)
+  }
+
     const updateBoard = (index) => {
       // si la casilla ya esta ocupada no hacer nada
       if(board[index] || winner){
@@ -101,6 +107,26 @@ function App() {
           {TURNS.O}
         </Square>
       </section>
+      {
+        winner!==null &&(
+          <section className='winner'>
+            <div className='text'>
+              <h2>
+                  {
+                    winner===false ?"Emapte": "Gano"
+                  }
+              </h2>
+              <header className='win'>
+                  {winner && <Square>{winner}</Square>}
+              </header>
+
+              <footer>
+                <button onClick={resetGame}>Empezar de nuevo</button>
+              </footer>
+            </div>
+          </section>
+        )
+      }
     </main>
 
   )
