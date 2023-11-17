@@ -1,4 +1,4 @@
-
+//local storage
 import { WINNER_COMBINATIONS } from "../constants"
 export const checkWinnerFrom = (boardtoCheck) => {
     // recorrer las combinaciones ganadoras
