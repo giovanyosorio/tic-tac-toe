@@ -1,5 +1,5 @@
 # React + Vite
-# Game tic tac toe
+# Game Tic Tac Toe 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
